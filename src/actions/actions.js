@@ -1,4 +1,9 @@
-export const storeMovies = (movies) => ({
-  type: 'STORE_MOVIES',
-  movies
-})
+export const storeBooks = (books) => ({
+  type: 'STORE_BOOKS',
+  books
+});
+
+export const toggleLoading = (bool) => ({
+  type: 'TOGGLE_LOADING',
+  bool
+});
