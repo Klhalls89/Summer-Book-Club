@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import { fetchBooks } from '../../utils/fetch';
 
 const API_KEY = `${process.env.REACT_APP_API_KEY}`
 
@@ -8,20 +8,11 @@ class App extends Component {
     super();
   };
 
-  selectBookType = (e) => {
+  selectBookType = async(e) => {
     let bookType = e.target.value
-    this.fetchBooks(bookType)
+    const books = await fetchBooks(API_KEY,bookType)
   }
  
-  fetchBooks = (bookType) => {
-    console.log('fetchBooks')
-    console.log(bookType)
-    const url = `https://api.nytimes.com/svc/books/v3/lists/current/hardcover-${bookType}.json?api-key=${API_KEY}`
-    fetch(url)
-    .then(response => response.json())
-    .then(data => console.log(data.results.books))
-  }
-
   render() {
     return (
       <div className="App">
