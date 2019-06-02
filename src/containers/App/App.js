@@ -4,7 +4,7 @@ import BooksContainer from '../../components/BooksContainer/BooksContainer';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import {  toggleLoading, storeBooks, setError } from '../../actions/actions';
 import { connect } from 'react-redux'
-// import { Loading } from '../../components/loading/Loading'
+import { Loading } from '../../components/Loading/Loading'
 
 const API_KEY = `${process.env.REACT_APP_API_KEY}`
 
