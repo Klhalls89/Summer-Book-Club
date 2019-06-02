@@ -1,33 +1,35 @@
 import React, { Component } from 'react';
 import { fetchBooks } from '../../utils/fetch';
 import BooksContainer from '../../components/BooksContainer/BooksContainer';
-import { Route, Switch, withRouter } from 'react-router-dom'
+import { Route, Switch, withRouter } from 'react-router-dom';
+import {  toggleLoading, storeBooks, setError } from '../../actions/actions';
+import { connect } from 'react-redux'
 
 const API_KEY = `${process.env.REACT_APP_API_KEY}`
 
 class App extends Component {
   constructor() {
     super()
-    this.state = {
-      books: []
-    }
   }
 
-
  selectBookType = async (e) => {
+    this.props.toggleLoading(true)
     let bookType = e.target.value
     try {
       const books = await fetchBooks(API_KEY,bookType)
-      this.setState({
-        books
-      })
+      this.props.storeBooks(books)
       this.props.history.push('/books')
+      this.props.toggleLoading(false
+        )
     } catch(error) {
-      console.log(error)
+      this.props.setError(error)
     }
   } 
 
   render() {
+    //if toggle loading is true {
+// return
+  // }
     return (
       <div className="App">
         <h1>Summer Book Club</h1>
@@ -36,7 +38,7 @@ class App extends Component {
         <Switch>
           <Route path='/book/:id'render={({ match }) => {
             const books = this.state.books
-            console.log(books)
+      
             const book = books.find(book => book.id === match.params.id);
             if (!book) {
               return (<div>This book does not exist! </div>);  
@@ -44,13 +46,21 @@ class App extends Component {
             return (<div>book page</div>)
             }} 
           /> 
-          <Route path='/books' render={() => <BooksContainer books={this.state.books} />} />
+          <Route path='/books' render={() => <BooksContainer />} />
         </Switch>
       </div>
     );
   };
 };
 
+const mapDispatchToProps=(dispatch) => {
+  return {
+    toggleLoading: (bool) => {dispatch(toggleLoading(bool))},
+    storeBooks: (books) => {dispatch(storeBooks(books))},
+    error: (error) => {dispatch(error(error))}
+  }
+}
 
-export default withRouter(App);
+
+export default withRouter(connect(null, mapDispatchToProps)(App));
 //withrouter connect mstp mdtp app

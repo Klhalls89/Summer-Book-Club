@@ -1,16 +1,29 @@
-import React from 'react';
+import React, { Component } from 'react';
 import BookCard from '../BookCard/BookCard'
+import { connect } from 'react-redux'
 
 
-const BooksContainer = (props) => {
-  const showBooks = props.books.map(book => <BookCard {...book} key={book.id} />
+
+class BooksContainer extends Component {
+  constructor() {
+    super()
+  }
+
+  render() {
+    const showBooks = this.props.books.map(book => <BookCard {...book} key={book.id} />
   )
-  return(
+    return(
     <div>
       BooksContainer
       {showBooks}
     </div>
-  );
+    );
+  }  
 };
 
-export default BooksContainer;
+const mapStateToProps = (state) => ({
+  books: state.books
+})
+//connect
+
+export default connect(mapStateToProps)(BooksContainer);
