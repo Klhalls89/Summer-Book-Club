@@ -4,6 +4,7 @@ import BooksContainer from '../../components/BooksContainer/BooksContainer';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import {  toggleLoading, storeBooks, setError } from '../../actions/actions';
 import { connect } from 'react-redux'
+import { Loading } from '../../components/Loading/Loading'
 
 const API_KEY = `${process.env.REACT_APP_API_KEY}`
 
@@ -27,14 +28,12 @@ class App extends Component {
   } 
 
   render() {
-    //if toggle loading is true {
-// return
-  // }
     return (
       <div className="App">
         <h1>Summer Book Club</h1>
         <button onClick={(e) => this.selectBookType(e)} value='fiction'>fiction</button>
-        <button onClick={(e) => this.selectBookType(e)} value='nonfiction'>nonfiction</button> 
+        <button onClick={(e) => this.selectBookType(e)} value='nonfiction'>nonfiction</button>
+        {this.props.loading && <Loading />} 
         <Switch>
           <Route path='/book/:id'render={({ match }) => {
             const books = this.state.books
@@ -53,6 +52,10 @@ class App extends Component {
   };
 };
 
+const mapStateToProps = (state) => ({
+  loading: state.loading
+})
+
 const mapDispatchToProps=(dispatch) => {
   return {
     toggleLoading: (bool) => {dispatch(toggleLoading(bool))},
@@ -62,5 +65,5 @@ const mapDispatchToProps=(dispatch) => {
 }
 
 
-export default withRouter(connect(null, mapDispatchToProps)(App));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
 //withrouter connect mstp mdtp app
