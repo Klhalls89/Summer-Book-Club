@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import { mapStateToProps, mapDispatchToProps } from './App'
+import { toggleLoading } from '../../actions/actions'
 
 describe('App', () => {
   describe('MSTP', () => {
@@ -16,6 +17,17 @@ describe('App', () => {
       }
       const results = mapStateToProps(mockState)
       expect(results).toEqual(expected)
+    })
+  })
+  describe('MDTP', () => {
+    it('should call toggleLoading with dispatch', () => {
+      const mockDispatch = jest.fn()
+      const actionToDispatch = toggleLoading(true)
+
+      const mappedProps = mapDispatchToProps(mockDispatch)
+      mappedProps.toggleLoading(true)
+
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
     })
   })
 })
