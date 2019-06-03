@@ -9,5 +9,16 @@
 
     expect(results).toEqual(expected)
   })
-  
+  describe('Case SET_ERROR', () => {
+
+    const bool = true
+
+    it('should toggle loading on the state tree', () => {
+      const expected = bool
+      const action = actions.toggleLoading(bool) 
+      const results= loadingReducer(false, action)
+
+      expect(results).toEqual(expected)
+    })
+  }) 
 })
