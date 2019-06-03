@@ -14,7 +14,6 @@ class BooksContainer extends Component {
   )
     return(
     <div>
-      BooksContainer
       {showBooks}
     </div>
     );
@@ -24,6 +23,5 @@ class BooksContainer extends Component {
 const mapStateToProps = (state) => ({
   books: state.books
 })
-//connect
 
 export default connect(mapStateToProps)(BooksContainer);

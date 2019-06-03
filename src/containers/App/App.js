@@ -52,11 +52,11 @@ class App extends Component {
   };
 };
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   loading: state.loading
 })
 
-const mapDispatchToProps=(dispatch) => {
+export const mapDispatchToProps=(dispatch) => {
   return {
     toggleLoading: (bool) => {dispatch(toggleLoading(bool))},
     storeBooks: (books) => {dispatch(storeBooks(books))},

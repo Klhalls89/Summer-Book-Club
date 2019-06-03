@@ -1,9 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import { mapStateToProps, mapDispatchToProps } from './App'
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
-});
+describe('App', () => {
+  describe('MSTP', () => {
+    it('should return a props object from state', () => {
+      const mockState = {
+        loading: false,
+        books: [],
+        error: 'error'
+      }
+      const expected = {
+        loading: false
+      }
+      const results = mapStateToProps(mockState)
+      expect(results).toEqual(expected)
+    })
+  })
+})
