@@ -29,4 +29,19 @@ describe('actions', () => {
       expect(results).toEqual(expectedAction)
     })
   })
+
+  describe('setError', () => {
+
+    it('should have a type of SET_ERROR', () => {
+      const error = 'error'
+      const expectedAction = {
+        type: 'SET_ERROR',
+        error
+      }
+      const results = actions.setError(error)
+      
+      expect(results).toEqual(expectedAction)
+    })
+
+  })
 })
