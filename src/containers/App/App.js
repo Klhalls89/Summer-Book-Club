@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { fetchBooks } from '../../utils/fetch';
-import BooksContainer from '../../components/BooksContainer/BooksContainer';
+import BooksContainer from '../BooksContainer/BooksContainer';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import {  toggleLoading, storeBooks, setError } from '../../actions/actions';
 import { connect } from 'react-redux'

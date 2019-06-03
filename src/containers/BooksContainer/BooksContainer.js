@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import BookCard from '../BookCard/BookCard'
+import BookCard from '../../components/BookCard/BookCard'
 import { connect } from 'react-redux'
 
 
@@ -20,7 +20,7 @@ class BooksContainer extends Component {
   }  
 };
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   books: state.books
 })
 
