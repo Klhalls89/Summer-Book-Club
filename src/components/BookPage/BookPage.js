@@ -1,10 +1,9 @@
 import React from 'react'
 
 export const BookPage = (props) => {
-  console.log(props)
   const { by, title, image, description, purchase } = props 
   return(
-    <div>
+    <div className="book-page">
       <h2>{title}</h2>
       <img src={image} />
       <p>{by}</p>

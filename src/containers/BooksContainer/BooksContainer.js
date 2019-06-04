@@ -13,7 +13,7 @@ class BooksContainer extends Component {
     const showBooks = this.props.books.map(book => <BookCard {...book} key={book.id} />
   )
     return(
-    <div>
+    <div className='books-container'>
       {showBooks}
     </div>
     );
