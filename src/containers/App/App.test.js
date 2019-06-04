@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import { mapStateToProps, mapDispatchToProps } from './App'
-import { toggleLoading } from '../../actions/actions'
+import { storeBooks, toggleLoading, setError } from '../../actions/actions'
 
 describe('App', () => {
   describe('MSTP', () => {
@@ -13,7 +13,9 @@ describe('App', () => {
         error: 'error'
       }
       const expected = {
-        loading: false
+        loading: false,
+        books: [],
+        error: 'error'
       }
       const results = mapStateToProps(mockState)
       expect(results).toEqual(expected)
@@ -26,6 +28,28 @@ describe('App', () => {
 
       const mappedProps = mapDispatchToProps(mockDispatch)
       mappedProps.toggleLoading(true)
+
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
+    })
+
+    it('should call storeBooks with dispatch', () => {
+      const books = [{title: 'book'}]
+      const mockDispatch = jest.fn()
+      const actionToDispatch = storeBooks(books)
+
+      const mappedProps = mapDispatchToProps(mockDispatch)
+      mappedProps.storeBooks(books)
+
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
+    })
+
+    it('should call setError with dispatch', () => {
+      const error = 'error'
+      const mockDispatch = jest.fn()
+      const actionToDispatch = setError(error)
+
+      const mappedProps = mapDispatchToProps(mockDispatch)
+      mappedProps.setError(error)
 
       expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
     })
