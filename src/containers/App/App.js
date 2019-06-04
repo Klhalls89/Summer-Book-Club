@@ -30,10 +30,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <i class="fas fa-umbrella-beach"></i>
         <h1>Summer Book Club</h1>
         <button onClick={(e) => this.selectBookType(e)} value='fiction'>fiction</button>
         <button onClick={(e) => this.selectBookType(e)} value='nonfiction'>nonfiction</button>
         {this.props.loading && <Loading />} 
+        {this.props.error && <div>Something Went Wrong</div>}
         <Switch>
           <Route path='/book/:id'render={({ match }) => {
             const { books } = this.props
@@ -54,14 +56,15 @@ class App extends Component {
 
 export const mapStateToProps = (state) => ({
   loading: state.loading,
-  books: state.books
+  books: state.books,
+  error: state.error
 })
 
 export const mapDispatchToProps=(dispatch) => {
   return {
     toggleLoading: (bool) => {dispatch(toggleLoading(bool))},
     storeBooks: (books) => {dispatch(storeBooks(books))},
-    error: (error) => {dispatch(error(error))}
+    setError: (error) => {dispatch(setError(error))}
   }
 }
 

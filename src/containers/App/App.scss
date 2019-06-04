@@ -1,10 +1,38 @@
 
 * {
   box-sizing: border-box;
+  font-family: sans-serif;
+  margin: 0;
 }
 
 .App {
   text-align: center;
+  background-color: #FCF9F7;
+  padding: 10px;
+
+  h1 {
+    color: #F59692;
+    font-family: 'Ranga', cursive;
+    font-weight: normal;
+    font-size: 64px;
+  }
+
+  button {
+    height: 50px;
+    width: 150px;
+    border-radius: 15px;
+    font-size: 22px;
+    margin: 10px;
+    background-color: #50C1B9;
+    color: white;
+    border: 0;
+
+  }
+
+  button:hover { 
+    background-color: #F6B08D;
+    cursor: pointer;
+  }
 }
 
 
