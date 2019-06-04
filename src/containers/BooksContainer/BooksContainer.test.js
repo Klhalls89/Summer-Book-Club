@@ -1,7 +1,21 @@
-import BooksContainer from './BooksContainer'
-import { mapStateToProps } from './BooksContainer'
+import React from "react";
+import { BooksContainer } from './BooksContainer';
+import { mapStateToProps } from './BooksContainer';
+import { shallow } from 'enzyme';
+
 
 describe('BooksContainer', () => {
+  let wrapper;
+  let mockBooks;
+
+  beforeEach(() => {
+    mockBooks = [{ title: "the best one"}];
+    wrapper = shallow(<BooksContainer books={mockBooks}/>);
+  });
+
+  it("should match snapshot", () => {
+    expect(wrapper).toMatchSnapshot();
+  });
 
   describe('mapStateToProps', () => {
 
@@ -17,6 +31,6 @@ describe('BooksContainer', () => {
       const results = mapStateToProps(mockState)
       expect(results).toEqual(expected)
 
-    })
-  })
-})
+    });
+  });
+});

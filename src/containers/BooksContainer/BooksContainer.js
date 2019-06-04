@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import BookCard from '../../components/BookCard/BookCard'
-import { connect } from 'react-redux'
+import BookCard from '../../components/BookCard/BookCard';
+import { connect } from 'react-redux';
 
 
 
-class BooksContainer extends Component {
+export class BooksContainer extends Component {
   constructor() {
     super()
   }
@@ -22,6 +22,6 @@ class BooksContainer extends Component {
 
 export const mapStateToProps = (state) => ({
   books: state.books
-})
+});
 
 export default connect(mapStateToProps)(BooksContainer);

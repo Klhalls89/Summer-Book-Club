@@ -30,7 +30,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <i class="fas fa-umbrella-beach"></i>
         <h1>Summer Book Club</h1>
         <button onClick={(e) => this.selectBookType(e)} value='fiction'>fiction</button>
         <button onClick={(e) => this.selectBookType(e)} value='nonfiction'>nonfiction</button>
