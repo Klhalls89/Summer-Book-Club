@@ -5,6 +5,7 @@ import { Route, Switch, withRouter } from 'react-router-dom';
 import {  toggleLoading, storeBooks, setError } from '../../actions/actions';
 import { connect } from 'react-redux'
 import { Loading } from '../../components/Loading/Loading'
+import { BookPage } from '../../components/BookPage/BookPage'
 
 const API_KEY = `${process.env.REACT_APP_API_KEY}`
 
@@ -20,8 +21,7 @@ class App extends Component {
       const books = await fetchBooks(API_KEY,bookType)
       this.props.storeBooks(books)
       this.props.history.push('/books')
-      this.props.toggleLoading(false
-        )
+      this.props.toggleLoading(false)
     } catch(error) {
       this.props.setError(error)
     }
@@ -36,13 +36,13 @@ class App extends Component {
         {this.props.loading && <Loading />} 
         <Switch>
           <Route path='/book/:id'render={({ match }) => {
-            const books = this.state.books
+            const { books } = this.props
       
             const book = books.find(book => book.id === match.params.id);
             if (!book) {
               return (<div>This book does not exist! </div>);  
             }
-            return (<div>book page</div>)
+            return (<BookPage {...book} />)
             }} 
           /> 
           <Route path='/books' render={() => <BooksContainer />} />
@@ -53,7 +53,8 @@ class App extends Component {
 };
 
 export const mapStateToProps = (state) => ({
-  loading: state.loading
+  loading: state.loading,
+  books: state.books
 })
 
 export const mapDispatchToProps=(dispatch) => {
