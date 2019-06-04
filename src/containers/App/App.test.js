@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { shallow } from 'enzyme';
 import { App } from './App';
-import { fetchBooks } from '../../utils/fetch';
 import { mapStateToProps, mapDispatchToProps } from './App'
+import { fetchBooks } from '../../utils/fetch';
 import { storeBooks, toggleLoading, setError } from '../../actions/actions'
 
 jest.mock("../../utils/fetch")
@@ -11,7 +12,7 @@ describe('App', () => {
   let wrapper;
   let mockBooks;
   let mockLoading;
-  let mockError
+  let mockError;
 
   beforeEach(() => {
     mockBooks = [{ title: "the best one"}];
@@ -24,6 +25,10 @@ describe('App', () => {
         books={mockBooks}
       />
     );
+  });
+
+  it("should match snapshot", () => {
+    expect(wrapper).toMatchSnapshot();
   });
 
   describe('MSTP', () => {
