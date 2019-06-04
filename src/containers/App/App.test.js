@@ -1,10 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import { App } from './App';
+import { fetchBooks } from '../../utils/fetch';
 import { mapStateToProps, mapDispatchToProps } from './App'
 import { storeBooks, toggleLoading, setError } from '../../actions/actions'
 
+jest.mock("../../utils/fetch")
+
 describe('App', () => {
+  let wrapper;
+  let books;
+
+
+
   describe('MSTP', () => {
     it('should return a props object from state', () => {
       const mockState = {

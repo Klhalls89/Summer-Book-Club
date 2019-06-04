@@ -9,7 +9,7 @@ import { BookPage } from '../../components/BookPage/BookPage'
 
 const API_KEY = `${process.env.REACT_APP_API_KEY}`
 
-class App extends Component {
+export class App extends Component {
   constructor() {
     super()
   }
