@@ -3,16 +3,16 @@ import { fetchBooks } from '../../utils/fetch';
 import BooksContainer from '../BooksContainer/BooksContainer';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import {  toggleLoading, storeBooks, setError } from '../../actions/actions';
-import { connect } from 'react-redux'
-import { Loading } from '../../components/Loading/Loading'
-import { BookPage } from '../../components/BookPage/BookPage'
+import { connect } from 'react-redux';
+import { Loading } from '../../components/Loading/Loading';
+import { BookPage } from '../../components/BookPage/BookPage';
 
 const API_KEY = `${process.env.REACT_APP_API_KEY}`
 
 export class App extends Component {
   constructor() {
     super()
-  }
+  };
 
  selectBookType = async (e) => {
     this.props.toggleLoading(true)
@@ -24,8 +24,8 @@ export class App extends Component {
       this.props.toggleLoading(false)
     } catch(error) {
       this.props.setError(error)
-    }
-  } 
+    };
+  }; 
 
   render() {
     return (
@@ -64,8 +64,8 @@ export const mapDispatchToProps=(dispatch) => {
     toggleLoading: (bool) => {dispatch(toggleLoading(bool))},
     storeBooks: (books) => {dispatch(storeBooks(books))},
     setError: (error) => {dispatch(setError(error))}
-  }
-}
+  };
+};
 
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

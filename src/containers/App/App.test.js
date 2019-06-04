@@ -11,7 +11,10 @@ describe('App', () => {
   let wrapper;
   let books;
 
-
+  beforeEach(() => {
+    mockBooks = [{ title: "the best one"}];
+    wrapper = shallow(<BooksContainer books={mockBooks}/>);
+  });
 
   describe('MSTP', () => {
     it('should return a props object from state', () => {
