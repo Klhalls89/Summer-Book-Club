@@ -9,11 +9,21 @@ jest.mock("../../utils/fetch")
 
 describe('App', () => {
   let wrapper;
-  let books;
+  let mockBooks;
+  let mockLoading;
+  let mockError
 
   beforeEach(() => {
     mockBooks = [{ title: "the best one"}];
-    wrapper = shallow(<BooksContainer books={mockBooks}/>);
+    mockLoading = true
+    mockError=' error'
+    wrapper = shallow(
+      <App
+        loading={mockLoading} 
+        error={mockError}
+        books={mockBooks}
+      />
+    );
   });
 
   describe('MSTP', () => {
