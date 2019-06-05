@@ -57,8 +57,10 @@ export class App extends Component {
 App.propTypes = {
   loading: PropTypes.bool,
   books: PropTypes.array,
-  error: PropTypes.string
-
+  error: PropTypes.string,
+  toggleLoading: PropTypes.func,
+  storeBooks: PropTypes.func,
+  setError: PropTypes.func
 }
 
 export const mapStateToProps = (state) => ({
