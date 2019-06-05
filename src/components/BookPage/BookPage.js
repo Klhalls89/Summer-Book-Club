@@ -13,6 +13,6 @@ export const BookPage = (props) => {
   )
 }
 
-BookCard.propTypes = {
+BookPage.propTypes = {
   props: PropTypes.object
 }
