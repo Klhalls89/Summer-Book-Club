@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 
+
 export const BookPage = (props) => {
   const { by, title, image, description, purchase } = props 
   return(
@@ -9,6 +10,7 @@ export const BookPage = (props) => {
       <img src={image} />
       <p>{by}</p>
       <p>{description}</p>
+      <a href={purchase}>buy me</a>
     </div>
   )
 }
