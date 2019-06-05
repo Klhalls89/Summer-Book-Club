@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import BookCard from '../../components/BookCard/BookCard';
 import { connect } from 'react-redux';
-
-
+import PropTypes from 'prop-types';
 
 export class BooksContainer extends Component {
   constructor() {
@@ -19,6 +18,10 @@ export class BooksContainer extends Component {
     );
   }  
 };
+
+BooksContainer.propTypes = {
+  books: PropTypes.array
+}
 
 export const mapStateToProps = (state) => ({
   books: state.books
