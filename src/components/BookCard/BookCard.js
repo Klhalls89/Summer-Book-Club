@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const BookCard = (props) => {
   const { id, image } = props 
@@ -10,6 +11,10 @@ const BookCard = (props) => {
       </Link>
     </div>
   )
+}
+
+BookCard.propTypes = {
+  props: PropTypes.object
 }
 
 export default BookCard

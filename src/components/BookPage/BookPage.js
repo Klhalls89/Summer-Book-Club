@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 
 export const BookPage = (props) => {
   const { by, title, image, description, purchase } = props 
@@ -12,3 +13,6 @@ export const BookPage = (props) => {
   )
 }
 
+BookCard.propTypes = {
+  props: PropTypes.object
+}
