@@ -1,7 +1,6 @@
 
 export const booksCleaner = (books) => {
-  const allBooks = books.results.books
-  console.log(allBooks)
+  const allBooks = books.results.books;
   return allBooks.map(book => {
     return {
       by: book.author,
@@ -11,6 +10,6 @@ export const booksCleaner = (books) => {
       purchase: book.amazon_product_url,
       rank: book.rank,
       title: book.title
-    }
-  })
-}
+    };
+  });
+};

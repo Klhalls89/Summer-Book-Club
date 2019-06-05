@@ -11,4 +11,4 @@ export const toggleLoading = (bool) => ({
 export const setError = (error) => ({
   type: 'SET_ERROR',
   error
-})
+});

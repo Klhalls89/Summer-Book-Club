@@ -9,12 +9,12 @@ describe('actions', () => {
       const expectedAction = {
         type: 'STORE_BOOKS',
         books
-      }
-      const results = actions.storeBooks(books)
+      };
+      const results = actions.storeBooks(books);
 
-      expect(results).toEqual(expectedAction)
-    })
-  })
+      expect(results).toEqual(expectedAction);
+    });
+  });
 
   describe('toggleLoading', () => {
 
@@ -23,12 +23,12 @@ describe('actions', () => {
       const expectedAction = {
         type: 'TOGGLE_LOADING',
         bool
-      }
-      const results = actions.toggleLoading(bool)
+      };
+      const results = actions.toggleLoading(bool);
 
-      expect(results).toEqual(expectedAction)
-    })
-  })
+      expect(results).toEqual(expectedAction);
+    });
+  });
 
   describe('setError', () => {
 
@@ -37,11 +37,10 @@ describe('actions', () => {
       const expectedAction = {
         type: 'SET_ERROR',
         error
-      }
-      const results = actions.setError(error)
+      };
+      const results = actions.setError(error);
       
-      expect(results).toEqual(expectedAction)
-    })
-
-  })
-})
+      expect(results).toEqual(expectedAction);
+    });
+  });
+});

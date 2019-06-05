@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 import { Loading } from '../../components/Loading/Loading';
 import { BookPage } from '../../components/BookPage/BookPage';
 
-const API_KEY = `${process.env.REACT_APP_API_KEY}`
+const API_KEY = `${process.env.REACT_APP_API_KEY}`;
 
 export class App extends Component {
   constructor() {
@@ -61,13 +61,13 @@ App.propTypes = {
   toggleLoading: PropTypes.func,
   storeBooks: PropTypes.func,
   setError: PropTypes.func
-}
+};
 
 export const mapStateToProps = (state) => ({
   loading: state.loading,
   books: state.books,
   error: state.error
-})
+});
 
 export const mapDispatchToProps=(dispatch) => {
   return {
@@ -77,6 +77,4 @@ export const mapDispatchToProps=(dispatch) => {
   };
 };
 
-
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
-//withrouter connect mstp mdtp app

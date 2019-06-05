@@ -1,8 +1,11 @@
 .lds-hourglass {
   display: block;
-  width: 64px;
   height: 64px;
+  position: relative;
+  width: 64px;
 }
+
+/*alphabatizing these made them stop working*/
 .lds-hourglass:after {
   content: " ";
   display: block;
@@ -15,6 +18,7 @@
   border-color: #F59692 transparent #F59692 transparent;
   animation: lds-hourglass 1.2s infinite;
 }
+
 @keyframes lds-hourglass {
   0% {
     transform: rotate(0);

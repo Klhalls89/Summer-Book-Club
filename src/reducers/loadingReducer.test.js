@@ -4,21 +4,20 @@
  describe('loadingReducer', () => {
 
   it('it should return inital', () => {
-    const expected = false
-    const results = loadingReducer(undefined, {})
+    const expected = false;
+    const results = loadingReducer(undefined, {});
 
-    expect(results).toEqual(expected)
+    expect(results).toEqual(expected);
   })
   describe('Case SET_ERROR', () => {
-
-    const bool = true
+    const bool = true;
 
     it('should toggle loading on the state tree', () => {
-      const expected = bool
-      const action = actions.toggleLoading(bool) 
-      const results= loadingReducer(false, action)
+      const expected = bool;
+      const action = actions.toggleLoading(bool); 
+      const results= loadingReducer(false, action);
 
-      expect(results).toEqual(expected)
-    })
-  }) 
-})
+      expect(results).toEqual(expected);
+    });
+  }); 
+});

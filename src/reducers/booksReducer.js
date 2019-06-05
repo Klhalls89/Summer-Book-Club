@@ -5,5 +5,5 @@ export const booksReducer = (state = [], action) => {
     default:
       return state
   };
-}
+};
 

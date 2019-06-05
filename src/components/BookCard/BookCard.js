@@ -11,10 +11,10 @@ const BookCard = (props) => {
       </Link>
     </div>
   )
-}
+};
 
 BookCard.propTypes = {
   props: PropTypes.object
-}
+};
 
-export default BookCard
+export default BookCard;

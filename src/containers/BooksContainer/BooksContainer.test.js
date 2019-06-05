@@ -3,7 +3,6 @@ import { BooksContainer } from './BooksContainer';
 import { mapStateToProps } from './BooksContainer';
 import { shallow } from 'enzyme';
 
-
 describe('BooksContainer', () => {
   let wrapper;
   let mockBooks;
@@ -24,13 +23,12 @@ describe('BooksContainer', () => {
         loading: false,
         books: [],
         error: 'error'
-      }
+      };
       const expected = {
         books: []
-      }
-      const results = mapStateToProps(mockState)
-      expect(results).toEqual(expected)
-
+      };
+      const results = mapStateToProps(mockState);
+      expect(results).toEqual(expected);
     });
   });
 });

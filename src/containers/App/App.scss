@@ -6,27 +6,26 @@
 }
 
 .App {
-  text-align: center;
   background-color: #FCF9F7;
   padding: 10px;
+  text-align: center;
 
   h1 {
     color: #F59692;
     font-family: 'Ranga', cursive;
-    font-weight: normal;
     font-size: 64px;
+    font-weight: normal;
   }
 
   button {
-    height: 50px;
-    width: 150px;
-    border-radius: 15px;
-    font-size: 22px;
-    margin: 10px;
     background-color: #50C1B9;
-    color: white;
+    border-radius: 15px;
     border: 0;
-
+    color: white;
+    font-size: 22px;
+    height: 50px;
+    margin: 10px;
+    width: 150px;
   }
 
   button:hover { 
@@ -34,5 +33,3 @@
     cursor: pointer;
   }
 }
-
-

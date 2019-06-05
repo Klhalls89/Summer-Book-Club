@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
 import { App } from './App';
-import { mapStateToProps, mapDispatchToProps } from './App'
+import { mapStateToProps, mapDispatchToProps } from './App';
 import { fetchBooks } from '../../utils/fetch';
-import { storeBooks, toggleLoading, setError } from '../../actions/actions'
+import { storeBooks, toggleLoading, setError } from '../../actions/actions';
 
-jest.mock("../../utils/fetch")
+jest.mock("../../utils/fetch");
 
 describe('App', () => {
   let wrapper;
@@ -16,8 +16,8 @@ describe('App', () => {
 
   beforeEach(() => {
     mockBooks = [{ title: "the best one"}];
-    mockLoading = true
-    mockError=' error'
+    mockLoading = true;
+    mockError=' error';
     wrapper = shallow(
       <App
         fetchBooks={fetchBooks}
@@ -32,23 +32,23 @@ describe('App', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-
   describe('MSTP', () => {
     it('should return a props object from state', () => {
       const mockState = {
         loading: false,
         books: [],
         error: 'error'
-      }
+      };
       const expected = {
         loading: false,
         books: [],
         error: 'error'
-      }
+      };
       const results = mapStateToProps(mockState)
       expect(results).toEqual(expected)
-    })
-  })
+    });
+  });
+
   describe('MDTP', () => {
     it('should call toggleLoading with dispatch', () => {
       const mockDispatch = jest.fn()
@@ -58,7 +58,7 @@ describe('App', () => {
       mappedProps.toggleLoading(true)
 
       expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
-    })
+    });
 
     it('should call storeBooks with dispatch', () => {
       const books = [{title: 'book'}]
@@ -69,7 +69,7 @@ describe('App', () => {
       mappedProps.storeBooks(books)
 
       expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
-    })
+    });
 
     it('should call setError with dispatch', () => {
       const error = 'error'
@@ -80,6 +80,6 @@ describe('App', () => {
       mappedProps.setError(error)
 
       expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
-    })
-  })
-})
+    });
+  });
+});
