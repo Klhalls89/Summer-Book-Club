@@ -20,6 +20,7 @@ describe('App', () => {
     mockError=' error'
     wrapper = shallow(
       <App
+        fetchBooks={fetchBooks}
         loading={mockLoading} 
         error={mockError}
         books={mockBooks}
@@ -30,6 +31,7 @@ describe('App', () => {
   it("should match snapshot", () => {
     expect(wrapper).toMatchSnapshot();
   });
+
 
   describe('MSTP', () => {
     it('should return a props object from state', () => {
