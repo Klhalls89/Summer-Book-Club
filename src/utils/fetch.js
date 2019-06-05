@@ -1,4 +1,4 @@
-import { booksCleaner } from './cleaner'
+import { booksCleaner } from './cleaner';
 
  export const fetchBooks = async (key,bookType) => {
     const url = `https://api.nytimes.com/svc/books/v3/lists/current/hardcover-${bookType}.json?api-key=${key}`
@@ -9,5 +9,5 @@ import { booksCleaner } from './cleaner'
       return cleanBooks
     } catch (error) {
     alert(error)
-  }
-}
+  };
+};
