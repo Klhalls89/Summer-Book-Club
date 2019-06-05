@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { fetchBooks } from '../../utils/fetch';
 import BooksContainer from '../BooksContainer/BooksContainer';
 import { Route, Switch, withRouter } from 'react-router-dom';
@@ -52,6 +53,13 @@ export class App extends Component {
     );
   };
 };
+
+App.propTypes = {
+  loading: PropTypes.bool,
+  books: PropTypes.array,
+  error: PropTypes.string
+
+}
 
 export const mapStateToProps = (state) => ({
   loading: state.loading,
