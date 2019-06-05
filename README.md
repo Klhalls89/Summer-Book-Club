@@ -1,4 +1,4 @@
-# Trapper Keeper
+# Summer Book Club
 
 ## Description: 
 The goal of this solo project was to pull the best seller list from the New York Times API and turn it into a fun functional app you can browse books with links to buy them.
